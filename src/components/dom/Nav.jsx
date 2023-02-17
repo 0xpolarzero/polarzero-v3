@@ -17,9 +17,7 @@ const Nav = () => {
 
   return (
     <header className='nav'>
-      <div className='title'>
-        <a>polarzero</a>
-      </div>
+      <div className='title'>{/* <a>polarzero</a> */}</div>
 
       <div className='links'>
         <a>work</a>

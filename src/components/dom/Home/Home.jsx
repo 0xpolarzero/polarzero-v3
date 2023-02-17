@@ -1,4 +1,8 @@
+import { isMobile } from 'react-device-detect';
+import Counter from './Counter';
+
 const Home = () => {
-  return null;
+  if (isMobile) return null;
+  return <Counter />;
 };
 export default Home;

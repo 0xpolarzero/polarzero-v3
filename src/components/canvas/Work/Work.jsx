@@ -1,131 +1,105 @@
 import * as THREE from 'three';
-import { useRef, useState } from 'react';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { useIntersect, Image, ScrollControls, Scroll } from '@react-three/drei';
+import { useEffect, useRef, useState } from 'react';
+import { useFrame, useThree } from '@react-three/fiber';
+import {
+  useIntersect,
+  Image,
+  ScrollControls,
+  Scroll,
+  useScroll,
+  Html,
+} from '@react-three/drei';
+import config from '@/data';
+import Entity from './Entity';
+import stores from '@/stores';
 
 const Work = () => {
+  const projects = config.work['en'];
+  const { width, height } = useThree((state) => state.viewport);
+
   return (
-    <ScrollControls /* infinite */ /* horizontal */ damping={6} pages={5}>
-      <Items />
+    <ScrollControls
+      /* infinite */ /* horizontal */ damping={6}
+      pages={projects.length + 1}>
+      {/* <Items /> */}
+      <Entity />
+      <CounterHelper projects={projects} />
       <Scroll html style={{ width: '100%' }}>
         <h1
           style={{
             position: 'absolute',
-            top: `100vh`,
+            top: `90vh`,
             right: '20vw',
-            fontSize: '25em',
+            fontSize: `${width / 4}rem`,
             transform: `translate3d(0,-100%,0)`,
           }}>
-          all
+          polarzero
         </h1>
-        <h1 style={{ position: 'absolute', top: '180vh', left: '10vw' }}>
-          hail
-        </h1>
-        <h1 style={{ position: 'absolute', top: '260vh', right: '10vw' }}>
-          thee,
-        </h1>
-        <h1 style={{ position: 'absolute', top: '350vh', left: '10vw' }}>
-          thoth
-        </h1>
-        <h1 style={{ position: 'absolute', top: '450vh', right: '10vw' }}>
-          her
-          <br />
-          mes.
-        </h1>
+        {projects.map((project, i) => (
+          <Item
+            key={i}
+            data={project}
+            positionY={(i + 2) * 100}
+            positionX={i % 2 === 0 ? 'right' : 'left'}
+          />
+        ))}
       </Scroll>
     </ScrollControls>
   );
 };
 
-function Item({ url, scale, ...props }) {
+const CounterHelper = ({ projects }) => {
+  // Detect the visible project based on scroll position
+  const setVisibleProject = stores.useCounter(
+    (state) => state.setVisibleProject,
+  );
+  const data = useScroll();
+
+  useFrame(() => {
+    const index = Math.round(data.offset * projects.length);
+    const project = index === 0 ? null : projects[index - 1];
+    setVisibleProject(project);
+  });
+
+  return null;
+};
+
+function Item({ data, positionY, positionX }) {
   const visible = useRef(false);
   const [hovered, hover] = useState(false);
   const ref = useIntersect((isVisible) => (visible.current = isVisible));
-  const { height } = useThree((state) => state.viewport);
+  const { width, height } = useThree((state) => state.viewport);
+
   useFrame((state, delta) => {
-    ref.current.position.y = THREE.MathUtils.damp(
-      ref.current.position.y,
+    ref.current.style.transform = `translate3d(0,${THREE.MathUtils.damp(
+      ref.current.style.transform,
       visible.current ? 0 : -height / 2 + 1,
       4,
       delta,
-    );
-    ref.current.material.zoom = THREE.MathUtils.damp(
-      ref.current.material.zoom,
-      visible.current ? 1 : 1.5,
-      4,
-      delta,
-    );
-    ref.current.material.grayscale = THREE.MathUtils.damp(
-      ref.current.material.grayscale,
-      hovered ? 0 : 1,
-      4,
-      delta,
-    );
+    )}px,0)`;
   });
-  return (
-    <group {...props}>
-      <Image
-        ref={ref}
-        onPointerOver={() => hover(true)}
-        onPointerOut={() => hover(false)}
-        scale={scale}
-        url={url}
-        onClick={() => console.log('click')}
-      />
-    </group>
-  );
-}
 
-function Items() {
-  const { width: w, height: h } = useThree((state) => state.viewport);
   return (
-    <Scroll>
-      <Item
-        url='/images/screenshot_promise.png'
-        scale={[w / 3, w / 3, 1]}
-        position={[-w / 6, 0, 0]}
-      />
-      <Item
-        url='/images/screenshot_metaverse.png'
-        scale={[2, w / 3, 1]}
-        position={[w / 30, -h, 0]}
-      />
-      <Item
-        url='/images/screenshot_promise.png'
-        scale={[w / 3, w / 5, 1]}
-        position={[-w / 4, -h * 1, 0]}
-      />
-      <Item
-        url='/images/screenshot_metaverse.png'
-        scale={[w / 5, w / 5, 1]}
-        position={[w / 4, -h * 1.2, 0]}
-      />
-      <Item
-        url='/images/screenshot_promise.png'
-        scale={[w / 5, w / 5, 1]}
-        position={[w / 10, -h * 1.75, 0]}
-      />
-      <Item
-        url='/images/screenshot_metaverse.png'
-        scale={[w / 3, w / 3, 1]}
-        position={[-w / 4, -h * 2, 0]}
-      />
-      <Item
-        url='/images/screenshot_promise.png'
-        scale={[w / 3, w / 5, 1]}
-        position={[-w / 4, -h * 2.6, 0]}
-      />
-      <Item
-        url='/images/screenshot_metaverse.png'
-        scale={[w / 2, w / 2, 1]}
-        position={[w / 4, -h * 3.1, 0]}
-      />
-      <Item
-        url='/images/screenshot_promise.png'
-        scale={[w / 2.5, w / 2, 1]}
-        position={[-w / 6, -h * 4.1, 0]}
-      />
-    </Scroll>
+    <div
+      ref={ref}
+      className={`work-item ${positionX}`}
+      onPointerOver={() => hover(true)}
+      onPointerOut={() => hover(false)}
+      style={{
+        position: 'absolute',
+        top: `${positionY}vh`,
+        transform: `translate3d(0,-100%,0)`,
+        width: '100%',
+        height: '100vh',
+      }}>
+      <div className='title'>{data.title}</div>
+      <div className='type'>{data.type}</div>
+      <div className='description'>{data.description}</div>
+      <div className='context'>{data.context}</div>
+      <div className='link'>{data.link}</div>
+      <div className='image'>{/* <Image url={data.image} /> */}</div>
+      <div className='date'>{data.date}</div>
+    </div>
   );
 }
 

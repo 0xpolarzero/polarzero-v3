@@ -1,0 +1,24 @@
+.work-item {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+
+  padding: 2rem 1rem;
+}
+
+.work-item.left {
+}
+
+.work-item.right {
+}
+
+.work-item .description,
+.work-item .context {
+  text-align: justify;
+}
+
+@media (min-width: 768px) {
+  .work-item {
+    padding: 2rem 3rem;
+  }
+}

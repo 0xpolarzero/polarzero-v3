@@ -12,7 +12,6 @@
 .nav {
   top: 0;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   gap: 1em;
   z-index: 10;
@@ -40,11 +39,15 @@
 .nav .links {
   display: flex;
   align-items: center;
-  gap: 2em;
+  gap: 1em;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
   .nav {
     padding: 1rem 2rem;
+    justify-content: space-between;
+  }
+  .nav .links {
+    gap: 2em;
   }
 }

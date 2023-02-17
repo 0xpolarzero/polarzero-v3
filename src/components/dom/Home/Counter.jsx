@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
-import stores from '@/stores';
 import { Divider } from 'antd';
+import { isMobile } from 'react-device-detect';
+import stores from '@/stores';
 
 const Counter = () => {
   const visibleProject = stores.useCounter((state) => state.visibleProject);
@@ -11,17 +12,17 @@ const Counter = () => {
 
   return (
     <div className='counter'>
-      <div>
-        {visibleProject ? (
+      {isMobile ? null : visibleProject ? (
+        <div>
           <span>
             {visibleProject.title}
             <Divider type='vertical' style={{ margin: '0 2rem' }} />
             {visibleProject.date}
           </span>
-        ) : (
-          '_scroll to explore'
-        )}
-      </div>
+        </div>
+      ) : (
+        '_scroll to explore'
+      )}
       <a>_read in classic view</a>
     </div>
   );

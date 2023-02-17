@@ -1,7 +1,7 @@
 const types = [
-  'Smart Contract',
+  'Smart Contracts',
   'React Three Fiber',
-  'Smart Contract & React Three Fiber',
+  'Smart Contracts & React Three Fiber',
 ];
 
 export default types;

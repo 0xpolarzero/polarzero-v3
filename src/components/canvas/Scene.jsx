@@ -8,18 +8,7 @@ export default function Scene({ children, ...props }) {
 
   return (
     <Suspense fallback={null}>
-      <Canvas
-        {...props}
-        orthographic
-        camera={{ zoom: 80 }}
-        gl={{ alpha: false, antialias: false, stencil: false, depth: false }}
-        dpr={[1, 1.5]}>
-        <color
-          attach='background'
-          args={theme === 'dark' ? ['#101010'] : ['#fff']}
-        />
-        <directionalLight intensity={0.75} />
-        <ambientLight intensity={0.75} />
+      <Canvas {...props} orthographic camera={{ zoom: 80 }} dpr={[1, 1.5]}>
         {children}
         <Preload all />
       </Canvas>

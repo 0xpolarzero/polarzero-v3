@@ -11,9 +11,9 @@ const work = [
       <div>
         A blockchain-based platform that provides transparency and
         accountability in digital relationships, allowing users to keep track of
-        the reliability of a person or a team. Essentially, it's a way to ensure
-        that founders can be held accountable for their promises, by allowing
-        them to make a genuine commitment that cannot be altered.
+        the reliability of a person or a team. Essentially, it&apos;s a way to
+        ensure that founders can be held accountable for their promises, by
+        allowing them to make a genuine commitment that cannot be altered.
       </div>
     ),
     context: (

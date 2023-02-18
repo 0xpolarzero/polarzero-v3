@@ -1,5 +1,6 @@
 import workEN from './work/work-en';
 import workFR from './work/work-fr';
+import nav from './nav';
 
 // Audio
 import soundscape from '@/assets/audio/soundscape.mp3';
@@ -18,6 +19,7 @@ const config = {
     en: workEN,
     fr: workFR,
   },
+  nav,
   audio,
 };
 

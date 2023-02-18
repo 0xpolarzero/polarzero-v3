@@ -99,4 +99,13 @@ export default create((set, get) => ({
       document.documentElement.style.setProperty(key, value);
     });
   },
+
+  /**
+   * @notice Language configuration
+   */
+  language: 'en',
+  toggleLanguage: () => {
+    const { language } = get();
+    set({ language: language === 'en' ? 'fr' : 'en' });
+  },
 }));

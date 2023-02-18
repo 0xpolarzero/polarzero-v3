@@ -6,10 +6,16 @@
   /* bottom: 10vh; */
   bottom: 0;
   transform: translateX(-50%);
-  padding: 1.5rem 2rem;
+  padding: 0.8rem 1.2rem;
   width: 100%;
   max-width: 1600px;
 
   display: grid;
   grid-template-columns: 1fr auto;
+}
+
+@media (min-width: 768px) {
+  .counter {
+    padding: 1.5rem 2rem;
+  }
 }

@@ -1,8 +1,9 @@
 import workEN from './work/work-en';
 import workFR from './work/work-fr';
+import educationEn from './education/education-en';
+import educationFr from './education/education-fr';
 import nav from './nav';
 
-// Audio
 import soundscape from '@/assets/audio/soundscape.mp3';
 
 const audio = {
@@ -18,6 +19,10 @@ const config = {
   work: {
     en: workEN,
     fr: workFR,
+  },
+  education: {
+    en: educationEn,
+    fr: educationFr,
   },
   nav,
   audio,

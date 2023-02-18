@@ -1,5 +1,5 @@
-import types from './types';
-import tech from './tech';
+import types from '../helpers/types';
+import tech from '../helpers/tech';
 
 const work = [
   {
@@ -13,10 +13,14 @@ const work = [
     ),
     context: (
       <div>
-        This uses Chainlink Functions to retrieve the balance of an Ethereum
-        address for an ERC20 token accross multiple blockchains. The aggregated
-        balance is then brought back to the original chain to gate access to
-        specific functions in the smart contract.
+        This uses{' '}
+        <a href='https://chain.link/functions' target='_blank' rel='noreferrer'>
+          Chainlink Functions
+        </a>{' '}
+        to retrieve the balance of an Ethereum address for an ERC20 token
+        accross multiple blockchains. The aggregated balance is then brought
+        back to the original chain to gate access to specific functions in the
+        smart contract.
       </div>
     ),
     links: (
@@ -185,11 +189,18 @@ const work = [
     description: (
       <div>
         An example of <b>3D audio integration in a virtual world on the Web</b>,
-        to showcase the major benefits of immersive audio in such environments
+        to showcase the major benefits of immersive audio in such environments.
       </div>
     ),
-    context: <div>Built using the Atmoky Web audio engine.</div>,
-    // or
+    context: (
+      <div>
+        Built using the{' '}
+        <a href='https://atmoky.com/' target='_blank' rel='noreferrer'>
+          Atmoky
+        </a>{' '}
+        Web audio engine.
+      </div>
+    ),
     links: (
       <>
         <a

@@ -5,8 +5,7 @@ import hooks from '@/hooks';
 
 const Counter = () => {
   const visibleProject = stores.useCounter((state) => state.visibleProject);
-  // const isMobile = hooks.useWindowSize();
-  const isMobile = false;
+  const { isMobile } = hooks.useWindowSize();
 
   useEffect(() => {
     console.log(visibleProject);

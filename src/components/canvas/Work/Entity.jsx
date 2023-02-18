@@ -97,7 +97,7 @@ const Entity = () => {
     ref.current.material.uniforms.uColorB.value = new THREE.Vector3(
       ...colors[theme][1],
     );
-  }, [theme]);
+  }, [theme, colors]);
 
   return (
     <points ref={ref} scale={1.5}>

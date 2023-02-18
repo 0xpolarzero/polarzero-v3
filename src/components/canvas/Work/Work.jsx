@@ -123,7 +123,7 @@ function Item({ data, positionY, positionX }) {
         onPointerOut={() => hover(false)}>
         <div className='header'>
           <span className='title'>{data.title}</span>
-          <span className='type'>{data.type.join(' - ')}</span>
+          <span className='type'>{data.type.join(' | ')}</span>
         </div>
         <div className='description'>{data.description}</div>
         <div className='context'>{data.context}</div>

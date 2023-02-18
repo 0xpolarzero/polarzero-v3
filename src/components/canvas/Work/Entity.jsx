@@ -63,7 +63,7 @@ const Entity = () => {
         value: 1.0,
       },
     }),
-    [radius],
+    [radius, colors, theme],
   );
 
   useFrame(({ clock }) => {

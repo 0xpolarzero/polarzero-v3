@@ -1,7 +1,5 @@
 import types from './types';
-// Images
-import imagePromise from '@/assets/images/screenshot_promise.png';
-import imageMetaverse from '@/assets/images/screenshot_metaverse.png';
+import tech from './tech';
 
 const work = [
   {
@@ -9,11 +7,12 @@ const work = [
     title: 'Promise',
     description: (
       <div>
-        A blockchain-based platform that provides transparency and
-        accountability in digital relationships, allowing users to keep track of
-        the reliability of a person or a team. Essentially, it&apos;s a way to
-        ensure that founders can be held accountable for their promises, by
-        allowing them to make a genuine commitment that cannot be altered.
+        A blockchain-based platform that provides{' '}
+        <b>transparency and accountability in digital relationships</b>,
+        allowing users to keep track of the reliability of a person or a team.
+        Essentially, it&apos;s a way to ensure that founders can be{' '}
+        <b>held accountable for their promises</b>, by allowing them to make a
+        genuine commitment <b>that cannot be altered</b>.
       </div>
     ),
     context: (
@@ -22,8 +21,41 @@ const work = [
         Chainlink Top 40 Quality Projects.
       </div>
     ),
-    link: 'https://usepromise.xyz',
-    image: imagePromise,
+    links: (
+      <>
+        <a href='https://usepromise.xyz' target='_blank' rel='noreferrer'>
+          Website
+        </a>{' '}
+        |{' '}
+        <a href='https://docs.usepromise.xyz' target='_blank' rel='noreferrer'>
+          Documentation
+        </a>{' '}
+        |{' '}
+        <a
+          href='https://github.com/0xpolarzero/chainlink-fall-2022-hackathon'
+          target='_blank'
+          rel='noreferrer'>
+          Github
+        </a>
+      </>
+    ),
+    tech: [
+      tech.solidity,
+      tech.javascript,
+      tech.hardhat,
+      tech.chainlink,
+      tech.ipfs,
+      tech.arweave,
+      tech.bundlr,
+      tech.theGraph,
+      tech.apollographql,
+      tech.nodejs,
+      tech.wagmi,
+      tech.ethers,
+      tech.nextjs,
+      tech.antd,
+    ],
+    image: { url: '/images/screenshots/promise.png', x: 4112, y: 2400 },
     date: '2020-01-01',
   },
   {
@@ -36,8 +68,9 @@ const work = [
       </div>
     ),
     context: <div>Built using the Atmoky Web audio engine.</div>,
-    link: 'https://immersiveaudio.polarzero.xyz',
-    image: imageMetaverse,
+    links: 'https://immersiveaudio.polarzero.xyz',
+    tech: [tech.ipfs],
+    image: { url: '/images/screenshots/immersiveaudio.png', x: 4112, y: 2412 },
     date: '2020-01-01',
   },
 ];

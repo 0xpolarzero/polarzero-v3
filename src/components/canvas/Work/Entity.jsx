@@ -1,19 +1,19 @@
 import { useEffect, useMemo, useRef } from 'react';
 import * as THREE from 'three';
-import { useFrame, useThree } from '@react-three/fiber';
+import { useFrame } from '@react-three/fiber';
 import { useScroll } from '@react-three/drei';
-import { animated, useSpring } from '@react-spring/three';
 import stores from '@/stores';
 
-import vertexShader from '../shaders/vertexShader';
+import vertexShaders from '../shaders/vertexShaders';
 import fragmentShader from '../shaders/fragmentShader';
 
-const Entity = () => {
+const Entity = ({ type }) => {
   const getAnalyserData = stores.useAudio((state) => state.getAnalyserData);
   const theme = stores.useConfig((state) => state.theme);
-  const { width } = useThree((state) => state.viewport);
   const data = useScroll();
   const ref = useRef(null);
+
+  const vertexShader = vertexShaders[type];
 
   const count = 1000;
   const radius = 2;

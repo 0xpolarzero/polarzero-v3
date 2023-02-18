@@ -1,7 +1,7 @@
 import Work from './Work';
 
 const Experience = ({ ...props }) => {
-  return <Work />;
+  return <Work {...props} />;
 };
 
 export default Experience;

@@ -10,29 +10,36 @@ import {
   useScroll,
   Html,
 } from '@react-three/drei';
-import config from '@/data';
-import Entity from './Entity';
-import stores from '@/stores';
 import { Tooltip } from 'antd';
+import Entity from './Entity';
 import CounterHelper from './CounterHelper';
+import config from '@/data';
+import stores from '@/stores';
 
-const Work = () => {
-  const projects = config.work['en'];
-  const theme = stores.useConfig((state) => state.theme);
+const Work = ({ type }) => {
+  const { theme, language } = stores.useConfig((state) => ({
+    theme: state.theme,
+    language: state.language,
+  }));
   const { width, height } = useThree((state) => state.viewport);
+  const [content, setContent] = useState(config[type][language]);
+
+  useEffect(() => {
+    setContent(config[type][language]);
+  }, [language]);
 
   return (
     <ScrollControls
       /* infinite */ /* horizontal */ damping={6}
-      pages={projects.length + 1}>
+      pages={content.length + 1}>
       {/* <Items /> */}
-      <Entity />
-      <CounterHelper projects={projects} />
+      <Entity type={type} />
+      <CounterHelper content={content} />
 
       <Scroll>
         {width < 9.6
           ? null
-          : projects.map((project, i) => {
+          : content.map((project, i) => {
               const scaleBase = [1 * (project.image.x / project.image.y), 1, 1];
               const scale = scaleBase.map((s) => s * (height * width) * 0.015);
               const offset =
@@ -76,7 +83,7 @@ const Work = () => {
           polarzero
         </h1>
         <div className='work'>
-          {projects.map((project, i) => (
+          {content.map((project, i) => (
             <Item
               key={i}
               data={project}

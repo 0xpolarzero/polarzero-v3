@@ -18,6 +18,7 @@ import CounterHelper from './CounterHelper';
 
 const Work = () => {
   const projects = config.work['en'];
+  const theme = stores.useConfig((state) => state.theme);
   const { width, height } = useThree((state) => state.viewport);
 
   return (
@@ -33,19 +34,30 @@ const Work = () => {
           ? null
           : projects.map((project, i) => {
               const scaleBase = [1 * (project.image.x / project.image.y), 1, 1];
-              const scale = scaleBase.map((s) => s * (width / height) * 1.5);
-              const offset = width > 20 ? (width - 20) / 2 : 0;
+              const scale = scaleBase.map((s) => s * (height * width) * 0.015);
+              const offset =
+                width > 20 ? (width - 20) / 2 : height > 10 ? 1 : 0;
+
               const position = [
-                (i % 2 === 0 ? -1 : 1) * (scale[0] * 1.5) +
+                // (i % 2 === 0 ? -1 : 1) * (scale[0] * 1.5) +
+                //   (i % 2 === 0 ? offset : -offset),
+                (i % 2 === 0 ? -1 : 1) * (width / 3) +
                   (i % 2 === 0 ? offset : -offset),
                 (i + 1) * -height,
                 0,
               ];
 
+              // Does project.image.url have a string, or is it an object with dark and light properties?
+              const url =
+                typeof project.image.url === 'string'
+                  ? project.image.url
+                  : project.image.url[theme];
+
               return (
                 <ItemImage
                   key={i}
-                  url={project.image.url}
+                  url={url}
+                  link={project.image.link}
                   position={position}
                   scale={scale}
                 />
@@ -136,7 +148,7 @@ function Item({ data, positionY, positionX }) {
   );
 }
 
-const ItemImage = ({ url, position, scale }) => {
+const ItemImage = ({ url, link, position, scale }) => {
   const { width, height } = useThree((state) => state.viewport);
   const [hovered, hover] = useState(false);
 
@@ -170,6 +182,7 @@ const ItemImage = ({ url, position, scale }) => {
         ref={ref}
         onPointerOver={() => hover(true)}
         onPointerOut={() => hover(false)}
+        onClick={() => window.open(link, '_blank')}
         scale={scale}
         url={url}
         style={{ zIndex: hovered ? 100000 : 0 }}

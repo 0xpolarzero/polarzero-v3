@@ -1,4 +1,7 @@
-import { Divider } from 'antd';
+import { Fragment } from 'react';
+import { useRouter } from 'next/router';
+import { Divider, Dropdown } from 'antd';
+import { AiOutlineMenu } from 'react-icons/ai';
 import { CiLight, CiDark } from 'react-icons/ci';
 import { RxPlay, RxSpeakerLoud, RxSpeakerOff } from 'react-icons/rx';
 import stores from '@/stores';
@@ -20,25 +23,13 @@ const Nav = () => {
     audioOff: state.suspended,
     toggleMute: state.toggleMute,
   }));
-  const { isMobile } = hooks.useWindowSize();
 
   return (
     <header className='nav'>
       <div className='title'>{/* <a>polarzero</a> */}</div>
 
       <div className='links'>
-        {isMobile ? (
-          'a'
-        ) : (
-          <>
-            <a>{config.nav[language][0]}</a>
-            <Divider type='vertical' />
-            <a>{config.nav[language][1]}</a>
-            <Divider type='vertical' />
-            <a>{config.nav[language][2]}</a>
-          </>
-        )}
-        <Divider type='vertical' />
+        <Links />
         {/* Icons */}
         {theme === 'dark' ? (
           <CiDark size={20} onClick={() => updateTheme('light')} />
@@ -60,18 +51,76 @@ const Nav = () => {
           <a
             onClick={toggleLanguage}
             className={language === 'en' ? 'active' : ''}>
-            <img src='/images/flag-us.svg' height={20} alt='US flag' />
+            EN
           </a>
 
           <a
             onClick={toggleLanguage}
             className={language === 'fr' ? 'active' : ''}>
-            <img src='/images/flag-fr.svg' height={20} alt='French flag' />
+            FR
           </a>
         </div>
       </div>
     </header>
   );
+};
+
+const Links = () => {
+  const language = stores.useConfig((state) => state.language);
+  const { isMobile } = hooks.useWindowSize();
+  const router = useRouter();
+
+  const items = [
+    {
+      key: '1',
+      label: (
+        <a
+          onClick={() => router.push('/')}
+          className={router.pathname === '/' ? 'active' : ''}>
+          {config.nav[language][0]}
+        </a>
+      ),
+    },
+    {
+      key: '2',
+      label: (
+        <a
+          onClick={() => router.push('/education')}
+          className={router.pathname === 'education' ? 'active' : ''}>
+          {config.nav[language][1]}
+        </a>
+      ),
+    },
+    {
+      key: '3',
+      label: (
+        <a
+          onClick={() => router.push('/links')}
+          className={router.pathname === 'links' ? 'active' : ''}>
+          {config.nav[language][2]}
+        </a>
+      ),
+    },
+  ];
+
+  if (isMobile)
+    return (
+      <>
+        <Dropdown menu={{ items }} trigger={['click']} arrow>
+          <a onClick={(e) => e.preventDefault()}>
+            <AiOutlineMenu size={20} />
+          </a>
+        </Dropdown>
+        <Divider type='vertical' />
+      </>
+    );
+
+  return items.map((item) => (
+    <Fragment key={item.key}>
+      {item.label}
+      <Divider type='vertical' />
+    </Fragment>
+  ));
 };
 
 export default Nav;

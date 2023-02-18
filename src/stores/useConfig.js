@@ -55,6 +55,11 @@ export default create((set, get) => ({
             theme === 'dark'
               ? antdTheme.darkAlgorithm
               : antdTheme.defaultAlgorithm,
+          // customize font
+          token: {
+            ...antdTheme.defaultAlgorithm.token,
+            fontFamily: 'var(--font-main)',
+          },
         }}>
         {children}
       </ConfigProvider>

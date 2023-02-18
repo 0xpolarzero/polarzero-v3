@@ -86,7 +86,7 @@ const Links = () => {
       label: (
         <a
           onClick={() => router.push('/education')}
-          className={router.pathname === 'education' ? 'active' : ''}>
+          className={router.pathname === '/education' ? 'active' : ''}>
           {config.nav[language][1]}
         </a>
       ),
@@ -96,7 +96,7 @@ const Links = () => {
       label: (
         <a
           onClick={() => router.push('/links')}
-          className={router.pathname === 'links' ? 'active' : ''}>
+          className={router.pathname === '/links' ? 'active' : ''}>
           {config.nav[language][2]}
         </a>
       ),

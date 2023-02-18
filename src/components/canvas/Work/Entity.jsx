@@ -17,16 +17,18 @@ const Entity = () => {
 
   const count = 1000;
   const radius = 2;
-  const colors = {
-    dark: [
-      [1.0, 1.0, 1.0],
-      [0.91, 0.91, 0.91],
-    ],
-    light: [
-      [0.06, 0.06, 0.06],
-      [0.02, 0.02, 0.02],
-    ],
-  };
+  const colors = useMemo(() => {
+    return {
+      dark: [
+        [1.0, 1.0, 1.0],
+        [0.91, 0.91, 0.91],
+      ],
+      light: [
+        [0.06, 0.06, 0.06],
+        [0.02, 0.02, 0.02],
+      ],
+    };
+  }, []);
 
   const particlesPosition = useMemo(() => {
     const positions = new Float32Array(count * 3);
@@ -54,8 +56,8 @@ const Entity = () => {
       uRadius: {
         value: radius,
       },
-      uColorA: new THREE.Uniform(new THREE.Vector3(...colors[theme][0])),
-      uColorB: new THREE.Uniform(new THREE.Vector3(...colors[theme][1])),
+      uColorA: new THREE.Uniform(new THREE.Vector3(...colors['dark'][0])),
+      uColorB: new THREE.Uniform(new THREE.Vector3(...colors['dark'][1])),
       uGain: {
         value: 1.0,
       },
@@ -63,7 +65,7 @@ const Entity = () => {
         value: 1.0,
       },
     }),
-    [radius, colors, theme],
+    [radius, colors],
   );
 
   useFrame(({ clock }) => {

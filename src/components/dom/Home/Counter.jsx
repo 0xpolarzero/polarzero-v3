@@ -1,10 +1,12 @@
 import { useEffect } from 'react';
 import { Divider } from 'antd';
-import { isMobile } from 'react-device-detect';
 import stores from '@/stores';
+import hooks from '@/hooks';
 
 const Counter = () => {
   const visibleProject = stores.useCounter((state) => state.visibleProject);
+  // const isMobile = hooks.useWindowSize();
+  const isMobile = false;
 
   useEffect(() => {
     console.log(visibleProject);

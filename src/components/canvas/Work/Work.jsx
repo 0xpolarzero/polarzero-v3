@@ -11,7 +11,7 @@ import {
   Html,
 } from '@react-three/drei';
 import { Tooltip } from 'antd';
-import Entity from './Entity';
+import Entity from '../Entity';
 import CounterHelper from './CounterHelper';
 import config from '@/data';
 import stores from '@/stores';

@@ -95,8 +95,8 @@ const Links = () => {
       key: '3',
       label: (
         <a
-          onClick={() => router.push('/links')}
-          className={router.pathname === '/links' ? 'active' : ''}>
+          onClick={() => router.push('/about')}
+          className={router.pathname === '/about' ? 'active' : ''}>
           {config.nav[language][2]}
         </a>
       ),

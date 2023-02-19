@@ -23,7 +23,7 @@ const Counter = () => {
       ) : (
         '_défilez pour découvrir'
       )}
-      <a>{language === 'en' ? '_classic view' : '_vue classique'}</a>
+      <a>{language === 'en' ? '_reading mode' : '_mode lecture'}</a>
     </div>
   );
 };

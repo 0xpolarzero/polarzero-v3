@@ -2,6 +2,7 @@ import workEN from './work/work-en';
 import workFR from './work/work-fr';
 import educationEn from './education/education-en';
 import educationFr from './education/education-fr';
+import about from './about';
 import nav from './nav';
 
 import soundscape from '@/assets/audio/soundscape.mp3';
@@ -24,6 +25,7 @@ const config = {
     en: educationEn,
     fr: educationFr,
   },
+  about,
   nav,
   audio,
 };

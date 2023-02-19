@@ -1,6 +1,6 @@
 const nav = {
-  en: ['work', 'education', 'links'],
-  fr: ['travail', 'formation', 'liens'],
+  en: ['work', 'education', 'about'],
+  fr: ['travail', 'formation', 'à propos'],
 };
 
 export default nav;

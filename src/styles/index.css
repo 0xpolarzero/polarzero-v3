@@ -3,6 +3,7 @@
 /* Local */
 @import './nav.css';
 @import './work.css';
+@import './about.css';
 @import './counter.css';
 
 :root {
@@ -56,9 +57,6 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
-}
-
-body {
   overscroll-behavior: none;
   user-select: none;
   cursor: var(--cursor);
@@ -236,6 +234,21 @@ a.emphasize.min:hover {
   height: 2px;
   background: var(--text-link);
   margin-top: 0.2em;
+}
+
+.italic {
+  font-style: italic;
+}
+
+/* 
+ * Separator
+ */
+.separator.vertical {
+  width: 1px;
+  height: 0.8rem;
+  background: var(--text-main);
+  margin: 0 0.5rem;
+  opacity: 0.1;
 }
 
 /* 

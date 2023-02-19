@@ -65,6 +65,12 @@ const tech = {
     link: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
   },
 
+  lens: {
+    name: 'Lens',
+    id: 'lens',
+    link: 'https://www.lens.xyz/',
+  },
+
   nextjs: {
     name: 'Next.js',
     id: 'nextjs',

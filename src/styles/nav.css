@@ -12,6 +12,13 @@
   align-items: center;
   gap: 1em;
   z-index: 10;
+
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.nav.hidden {
+  opacity: 0;
 }
 
 .nav a,

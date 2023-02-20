@@ -12,6 +12,17 @@
 
   display: grid;
   grid-template-columns: 1fr auto;
+  opacity: 1;
+  transition: all 0.2s ease-in-out;
+}
+
+.counter:hover {
+  backdrop-filter: blur(8px);
+  background: rgba(var(--background-main-rgb), 0.6);
+}
+
+.counter.hidden {
+  opacity: 0;
 }
 
 @media (min-width: 768px) {

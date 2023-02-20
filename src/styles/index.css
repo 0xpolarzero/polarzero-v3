@@ -2,7 +2,9 @@
 
 /* Local */
 @import './nav.css';
-@import './work.css';
+@import './card.css';
+@import './immersive.css';
+@import './reading.css';
 @import './about.css';
 @import './counter.css';
 

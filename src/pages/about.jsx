@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import Home from '@/components/dom/Home';
+import Global from '@/components/dom/Global';
 
 const Experience = dynamic(() => import('@/components/canvas/Experience'), {
   ssr: false,
@@ -7,7 +7,7 @@ const Experience = dynamic(() => import('@/components/canvas/Experience'), {
 
 // Dom components go here
 export default function Page(props) {
-  return <Home displayCounter={false} />;
+  return <Global type='about' />;
 }
 
 Page.canvas = (props) => <Experience type='about' />;

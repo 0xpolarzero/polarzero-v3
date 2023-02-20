@@ -59,6 +59,7 @@ const work = [
     image: {
       url: '/images/screenshots/cross-chain-erc20-balance-verification.png',
       link: 'https://cross-chain-erc-20-balance-verification.vercel.app/',
+      bgType: 'light',
       x: 4112,
       y: 2400,
     },
@@ -127,6 +128,7 @@ const work = [
         light: '/images/screenshots/echoes-light.png',
       },
       link: 'https://echoes.polarzero.xyz',
+      bgType: null,
       x: 4112,
       y: 2398,
     },
@@ -182,6 +184,7 @@ const work = [
     image: {
       url: '/images/screenshots/poligraph.png',
       link: 'https://poligraph.polarzero.xyz',
+      bgType: 'dark',
       x: 4112,
       y: 2398,
     },
@@ -241,6 +244,7 @@ const work = [
     image: {
       url: '/images/screenshots/immersiveaudio.png',
       link: 'https://immersiveaudio.polarzero.xyz',
+      bgType: 'dark',
       x: 4112,
       y: 2412,
     },
@@ -306,6 +310,7 @@ const work = [
     image: {
       url: '/images/screenshots/promise.png',
       link: 'https://usepromise.xyz',
+      bgType: 'dark',
       x: 4112,
       y: 2400,
     },

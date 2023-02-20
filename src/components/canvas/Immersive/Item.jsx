@@ -5,7 +5,10 @@ import { Tooltip } from 'antd';
 import stores from '@/stores';
 
 const Item = ({ data, positionY, positionX }) => {
-  const theme = stores.useConfig((state) => state.theme);
+  const { theme, hideControls } = stores.useConfig((state) => ({
+    theme: state.theme,
+    hideControls: state.hideControls,
+  }));
   const { width } = useThree((state) => state.viewport);
   const visible = useRef(false);
   const [hovered, hover] = useState(false);
@@ -14,7 +17,9 @@ const Item = ({ data, positionY, positionX }) => {
   return (
     <div
       ref={ref}
-      className={`work-item ${positionX} ${width < 9.6 ? 'mobile' : 'desktop'}`}
+      className={`work-item ${positionX} ${
+        width < 9.6 ? 'mobile' : 'desktop'
+      } ${hideControls ? 'hidden' : ''}`}
       style={{
         position: 'absolute',
         top: `${positionY}vh`,

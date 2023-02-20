@@ -11,6 +11,7 @@ const Global = ({ type }) => {
     <>
       {readingMode ? <Reading type={type} /> : null}
       <Counter />
+      <div className='image-container'></div>
     </>
   );
 };

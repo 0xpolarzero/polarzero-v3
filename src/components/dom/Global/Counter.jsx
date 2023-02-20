@@ -3,10 +3,7 @@ import stores from '@/stores';
 import hooks from '@/hooks';
 
 const Counter = () => {
-  const { language, hideControls } = stores.useConfig((state) => ({
-    language: state.language,
-    hideControls: state.hideControls,
-  }));
+  const language = stores.useConfig((state) => state.language);
   const { activePage, visibleProject, readingMode, toggleReadingMode } =
     stores.useCounter((state) => ({
       activePage: state.activePage,
@@ -17,7 +14,7 @@ const Counter = () => {
   const { isMobile } = hooks.useWindowSize();
 
   return (
-    <div className={`counter ${hideControls ? 'hidden' : ''}`}>
+    <div className='counter'>
       {isMobile ? (
         `_${activePage}`
       ) : readingMode ? (

@@ -9,14 +9,14 @@ import config from '@/data';
 import hooks from '@/hooks';
 
 const Nav = () => {
-  const { theme, updateTheme, language, toggleLanguage, hideControls } =
-    stores.useConfig((state) => ({
+  const { theme, updateTheme, language, toggleLanguage } = stores.useConfig(
+    (state) => ({
       theme: state.theme,
       updateTheme: state.updateTheme,
       language: state.language,
       toggleLanguage: state.toggleLanguage,
-      hideControls: state.hideControls,
-    }));
+    }),
+  );
   const { init, started, audioOff, toggleMute } = stores.useAudio((state) => ({
     init: state.init,
     started: state.started,
@@ -25,7 +25,7 @@ const Nav = () => {
   }));
 
   return (
-    <header className={`nav ${hideControls ? 'hidden' : ''}`}>
+    <header className='nav'>
       <div className='title'></div>
 
       <div className='links'>

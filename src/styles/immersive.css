@@ -11,6 +11,12 @@
   max-width: 1600px;
   justify-self: center;
   padding: 2rem 0;
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.work-item.hidden {
+  opacity: 0;
 }
 
 .work-item.desktop {

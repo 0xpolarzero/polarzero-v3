@@ -69,6 +69,24 @@ export default create((set, get) => ({
    * @notice Theme configuration
    */
   theme: 'dark',
+  // Init
+  initTheme: async () => {
+    const { updateTheme } = get();
+
+    // Not a good practice, but it will avoid an hydration issue
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    // Get the user's preferred theme
+    const userPrefersDark =
+      window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const theme = userPrefersDark ? 'dark' : 'light';
+
+    updateTheme(theme);
+    return theme;
+  },
+
+  // Update
   updateTheme: (newTheme) => {
     const { setLight, setDark } = get();
 
@@ -86,6 +104,7 @@ export default create((set, get) => ({
       document.documentElement.style.setProperty('--background-main', newBg);
   },
 
+  // Light theme
   setLight: () => {
     lightProperties.forEach((property) => {
       const key = Object.keys(property)[0];
@@ -95,6 +114,7 @@ export default create((set, get) => ({
     });
   },
 
+  // Dark theme
   setDark: () => {
     darkProperties.forEach((property) => {
       const key = Object.keys(property)[0];

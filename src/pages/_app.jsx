@@ -9,6 +9,7 @@ import hooks from '@/hooks';
 const Scene = dynamic(() => import('@/components/canvas/Scene'), { ssr: true });
 
 export default function App({ Component, pageProps = { title: 'polarzero' } }) {
+  const initTheme = stores.useConfig((state) => state.initTheme);
   const setReadingMode = stores.useCounter((state) => state.setReadingMode);
   const { isShrinked } = hooks.useWindowSize();
 
@@ -18,7 +19,9 @@ export default function App({ Component, pageProps = { title: 'polarzero' } }) {
   useEffect(() => {
     if (typeof window !== 'undefined' && loader.current)
       loader.current.classList.add('hidden');
-  }, []);
+
+    initTheme();
+  }, [initTheme]);
 
   // Force reading mode if it's too small
   useEffect(() => {

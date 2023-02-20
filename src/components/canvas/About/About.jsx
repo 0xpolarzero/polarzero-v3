@@ -80,10 +80,7 @@ const About = ({ type }) => {
                 </a>
               </div>
               <div className='resume'>
-                <a
-                  href='/docs/RESUME_EN_2023_feb.pdf'
-                  target='_blank'
-                  rel='noreferrer'>
+                <a href='/docs/resume.pdf' target='_blank' rel='noreferrer'>
                   <AiOutlineFilePdf size={20} />{' '}
                   {language === 'en' ? 'Resume' : 'CV'}
                 </a>

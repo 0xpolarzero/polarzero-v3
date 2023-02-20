@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useRef } from 'react';
 import * as THREE from 'three';
 import { useFrame } from '@react-three/fiber';
-import { useScroll } from '@react-three/drei';
 import stores from '@/stores';
 
 import vertexShaders from './shaders/vertexShaders';
@@ -10,7 +9,10 @@ import fragmentShader from './shaders/fragmentShader';
 const Entity = ({ type }) => {
   const getAnalyserData = stores.useAudio((state) => state.getAnalyserData);
   const theme = stores.useConfig((state) => state.theme);
-  const data = useScroll();
+  const { scrollPos, readingMode } = stores.useCounter((state) => ({
+    scrollPos: state.scrollPos,
+    readingMode: state.readingMode,
+  }));
   const ref = useRef(null);
 
   const vertexShader = vertexShaders[type];
@@ -77,7 +79,8 @@ const Entity = ({ type }) => {
     ref.current.material.uniforms.uTime.value = clock.getElapsedTime();
 
     // Scroll
-    ref.current.position.y = data.offset * 2;
+    // ref.current.position.y = data.offset * 2;
+    ref.current.position.y = readingMode ? 0 : scrollPos * 2;
 
     // Modifications based on audio
     const analyserData = getAnalyserData();

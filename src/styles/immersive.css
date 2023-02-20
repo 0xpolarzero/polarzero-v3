@@ -1,0 +1,34 @@
+.work {
+  display: grid;
+  justify-content: center;
+}
+
+.work-item {
+  display: grid;
+  /* justify-content: center; */
+  align-items: center;
+  width: 100%;
+
+  max-width: 1600px;
+  justify-self: center;
+  padding: 2rem 0;
+}
+
+.work-item.desktop {
+  padding: 2rem 2rem;
+}
+
+/* Only distribute left/right on desktop */
+.work-item.desktop .card {
+  width: 70%;
+  max-width: 800px;
+  padding: 1rem 2rem;
+  gap: 1.5rem;
+}
+
+.work-item.desktop.left .card {
+  justify-self: start;
+}
+.work-item.desktop.right .card {
+  justify-self: end;
+}

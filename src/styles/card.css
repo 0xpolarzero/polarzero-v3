@@ -1,0 +1,68 @@
+/* Card */
+.card {
+  /* transparent glass card */
+  border-radius: 1rem;
+  padding: 1rem 1.5rem;
+  backdrop-filter: blur(4px);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.card.hovered {
+  backdrop-filter: blur(8px);
+  background: rgba(var(--background-main-rgb), 0.6);
+}
+
+/* Text */
+.card .header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.work-item.mobile .card .header,
+.reading.mobile .card .header {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.card .header .title {
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.card .header .type {
+  font-size: 0.9rem;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.card .description,
+.card .context {
+  text-align: justify;
+}
+
+.card .context {
+  font-style: italic;
+}
+
+/* Tech */
+.card .tech {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+  gap: 0.5rem;
+}
+
+.card .tech .tech-item img {
+  opacity: 0.8;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.card .tech .tech-item:hover img {
+  opacity: 1;
+}

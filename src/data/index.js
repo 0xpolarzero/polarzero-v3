@@ -5,13 +5,11 @@ import educationFr from './education/education-fr';
 import about from './about';
 import nav from './nav';
 
-import soundscape from '@/assets/audio/soundscape.mp3';
-
 const audio = {
   files: [
     {
       name: 'soundscape',
-      src: soundscape,
+      src: '/audio/soundscape.mp3',
     },
   ],
 };

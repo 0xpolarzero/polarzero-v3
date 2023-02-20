@@ -57,7 +57,7 @@ const work = [
       tech.zustand,
     ],
     image: {
-      url: '/images/screenshots/cross-chain-erc20-balance-verification.png',
+      url: '/img/screenshots/cross-chain-erc20-balance-verification.png',
       link: 'https://cross-chain-erc-20-balance-verification.vercel.app/',
       bgType: 'light',
       x: 4112,
@@ -124,8 +124,8 @@ const work = [
     ],
     image: {
       url: {
-        dark: '/images/screenshots/echoes-dark.png',
-        light: '/images/screenshots/echoes-light.png',
+        dark: '/img/screenshots/echoes-dark.png',
+        light: '/img/screenshots/echoes-light.png',
       },
       link: 'https://echoes.polarzero.xyz',
       bgType: null,
@@ -182,7 +182,7 @@ const work = [
       tech.zustand,
     ],
     image: {
-      url: '/images/screenshots/poligraph.png',
+      url: '/img/screenshots/poligraph.png',
       link: 'https://poligraph.polarzero.xyz',
       bgType: 'dark',
       x: 4112,
@@ -242,7 +242,7 @@ const work = [
       tech.zustand,
     ],
     image: {
-      url: '/images/screenshots/immersiveaudio.png',
+      url: '/img/screenshots/immersiveaudio.png',
       link: 'https://immersiveaudio.polarzero.xyz',
       bgType: 'dark',
       x: 4112,
@@ -308,7 +308,7 @@ const work = [
       tech.antd,
     ],
     image: {
-      url: '/images/screenshots/promise.png',
+      url: '/img/screenshots/promise.png',
       link: 'https://usepromise.xyz',
       bgType: 'dark',
       x: 4112,

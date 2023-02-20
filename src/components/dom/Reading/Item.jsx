@@ -18,7 +18,7 @@ const Item = ({ data }) => {
           <Tooltip title={tech.name} key={i} className='tech-item'>
             <a href={tech.link} target='_blank' rel='noreferrer'>
               <img
-                src={`/images/tech/${theme}/${tech.id}.svg`}
+                src={`/img/tech/${theme}/${tech.id}.svg`}
                 alt={tech.name}
                 height={30}
               />

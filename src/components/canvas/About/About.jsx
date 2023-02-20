@@ -56,7 +56,7 @@ const About = ({ type }) => {
                   target='_blank'
                   rel='noreferrer'>
                   <img
-                    src={`/images/tech/${theme}/lens.svg`}
+                    src={`/img/tech/${theme}/lens.svg`}
                     alt='lens'
                     height={20}
                   />{' '}
@@ -91,7 +91,7 @@ const About = ({ type }) => {
               </div>
               <div className='resume'>
                 <a
-                  href='/documents/RESUME_EN_2023_feb.pdf'
+                  href='/docs/RESUME_EN_2023_feb.pdf'
                   target='_blank'
                   rel='noreferrer'>
                   <AiOutlineFilePdf size={20} />{' '}

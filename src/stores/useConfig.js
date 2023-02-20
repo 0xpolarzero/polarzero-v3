@@ -113,4 +113,10 @@ export default create((set, get) => ({
     const { language } = get();
     set({ language: language === 'en' ? 'fr' : 'en' });
   },
+
+  /**
+   * @notice Controls (hide nav & counter)
+   */
+  hideControls: false,
+  setHideControls: (value) => set({ hideControls: value }),
 }));

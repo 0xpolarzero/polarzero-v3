@@ -7,6 +7,7 @@ const useWindowSize = () => {
   });
   const [isMobile, setIsMobile] = useState(false);
   const [isWideScreen, setIsWideScreen] = useState(false);
+  const [isShrinked, setIsShrinked] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -24,13 +25,19 @@ const useWindowSize = () => {
       } else {
         setIsWideScreen(false);
       }
+      // height < 450 or width < 350
+      if (window.innerWidth < 350 || window.innerHeight < 450) {
+        setIsShrinked(true);
+      } else {
+        setIsShrinked(false);
+      }
     };
     window.addEventListener('resize', handleResize);
     handleResize();
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  return { windowSize, isMobile, isWideScreen };
+  return { windowSize, isMobile, isWideScreen, isShrinked };
 };
 
 export default useWindowSize;

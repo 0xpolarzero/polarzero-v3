@@ -1,9 +1,7 @@
 .counter {
-  /* background: red; */
   backdrop-filter: blur(10px);
   position: fixed;
   left: 50%;
-  /* bottom: 10vh; */
   bottom: 0;
   transform: translateX(-50%);
   padding: 0.8rem 1.2rem;

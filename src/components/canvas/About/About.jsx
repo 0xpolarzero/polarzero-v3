@@ -91,7 +91,7 @@ const About = ({ type }) => {
               </div>
               <div className='resume'>
                 <a
-                  href='/documents/RESUME_EN_2023_FEB.pdf'
+                  href='/documents/RESUME_EN_2023_feb.pdf'
                   target='_blank'
                   rel='noreferrer'>
                   <AiOutlineFilePdf size={20} />{' '}

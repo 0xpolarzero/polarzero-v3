@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 const titleDefault = 'polarzero';
 const url = 'https://polarzero.xyz/';
-const description = 'Personal website';
+const description = 'Personal portfolio';
 const author = 'polarzero';
 
 const Header = ({ title = titleDefault }) => {
@@ -20,7 +20,7 @@ const Header = ({ title = titleDefault }) => {
       <meta name='description' content={description} />
       <meta
         name='keywords'
-        content='r3f, three, react, three, fiber, smart, contracts, blockchain, solidity, polarzero, crypto, website, developer, frontend, fullstack, javascript, typescript, react, next'
+        content='portfolio, r3f, three, react, three, fiber, smart, contracts, blockchain, solidity, polarzero, crypto, website, developer, frontend, fullstack, javascript, typescript, react, next'
       />
       <meta name='robots' content='index,follow' />
       <meta name='distribution' content='web' />

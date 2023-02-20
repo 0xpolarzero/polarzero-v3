@@ -113,6 +113,12 @@ const tech = {
     link: 'https://threejs.org/',
   },
 
+  vite: {
+    name: 'Vite',
+    id: 'vite',
+    link: 'https://vitejs.dev/',
+  },
+
   wagmi: {
     name: 'Wagmi',
     id: 'wagmi',

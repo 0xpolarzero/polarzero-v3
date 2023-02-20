@@ -25,7 +25,6 @@ const useWindowSize = () => {
       } else {
         setIsWideScreen(false);
       }
-      // height < 450 or width < 350
       if (window.innerWidth < 350 || window.innerHeight < 450) {
         setIsShrinked(true);
       } else {

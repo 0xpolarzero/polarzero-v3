@@ -73,13 +73,10 @@ const Entity = ({ type }) => {
   useFrame(({ clock }) => {
     if (!ref.current) return;
 
-    // -(width / 2 + ((1 / 2) * width) / 2) * data.offset
-
     // Time
     ref.current.material.uniforms.uTime.value = clock.getElapsedTime();
 
     // Scroll
-    // ref.current.position.y = data.offset * 2;
     ref.current.position.y = readingMode ? 0 : scrollPos * 2;
 
     // Modifications based on audio

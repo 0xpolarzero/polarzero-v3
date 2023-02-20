@@ -1,16 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
-import { Image } from 'next/image';
-import * as THREE from 'three';
-import { useFrame, useThree } from '@react-three/fiber';
-import {
-  Image as ImageDrei,
-  useIntersect,
-  ScrollControls,
-  Scroll,
-  useScroll,
-  Html,
-} from '@react-three/drei';
-import { Divider, Tooltip } from 'antd';
+import { useEffect, useState } from 'react';
+import { useThree } from '@react-three/fiber';
+import { ScrollControls, Scroll } from '@react-three/drei';
+import { Tooltip } from 'antd';
 import { AiOutlineFilePdf } from 'react-icons/ai';
 import {
   SiEthereum,
@@ -28,7 +19,7 @@ const About = ({ type }) => {
     theme: state.theme,
     language: state.language,
   }));
-  const { width, height } = useThree((state) => state.viewport);
+  const { width } = useThree((state) => state.viewport);
   const [content, setContent] = useState(config[type]);
 
   useEffect(() => {
@@ -36,8 +27,7 @@ const About = ({ type }) => {
   }, [language]);
 
   return (
-    <ScrollControls /* infinite */ /* horizontal */ damping={6} pages={2}>
-      {/* <Items /> */}
+    <ScrollControls damping={6} pages={2}>
       <Entity type={type} />
 
       <Scroll html style={{ width: '100%' }}>

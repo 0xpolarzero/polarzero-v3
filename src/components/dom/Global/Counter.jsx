@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Divider } from 'antd';
 import stores from '@/stores';
 import hooks from '@/hooks';

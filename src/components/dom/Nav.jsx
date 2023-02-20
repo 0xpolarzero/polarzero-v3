@@ -26,7 +26,7 @@ const Nav = () => {
 
   return (
     <header className={`nav ${hideControls ? 'hidden' : ''}`}>
-      <div className='title'>{/* <a>polarzero</a> */}</div>
+      <div className='title'></div>
 
       <div className='links'>
         <Links />
@@ -79,7 +79,7 @@ const Links = () => {
       const page = config.nav[language][index];
       setActivePage(page);
     }
-  }, [router.pathname, setActivePage]);
+  }, [router.pathname, setActivePage, language]);
 
   const items = [
     {

@@ -39,7 +39,6 @@ const Immersive = ({ type }) => {
               0,
             ];
 
-            // Does project.image.url have a string, or is it an object with dark and light properties?
             const url =
               typeof project.image.url === 'string'
                 ? project.image.url

@@ -3,7 +3,6 @@ import { useScroll } from '@react-three/drei';
 import stores from '@/stores';
 
 const CounterHelper = ({ content }) => {
-  // Detect the visible project based on scroll position
   const { setVisibleProject, setScrollPos } = stores.useCounter((state) => ({
     setVisibleProject: state.setVisibleProject,
     setScrollPos: state.setScrollPos,

@@ -5,7 +5,6 @@ const Experience = dynamic(() => import('@/components/canvas/Experience'), {
   ssr: false,
 });
 
-// Dom components go here
 export default function Page(props) {
   return <Global type='about' />;
 }

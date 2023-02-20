@@ -3,10 +3,15 @@ import dynamic from 'next/dynamic';
 import Header from '@/config';
 import Layout from '@/components/dom/Layout';
 import '@/styles/index.css';
+import stores from '@/stores';
+import hooks from '@/hooks';
 
 const Scene = dynamic(() => import('@/components/canvas/Scene'), { ssr: true });
 
 export default function App({ Component, pageProps = { title: 'polarzero' } }) {
+  const setReadingMode = stores.useCounter((state) => state.setReadingMode);
+  const { isShrinked } = hooks.useWindowSize();
+
   const layout = useRef();
   const loader = useRef();
 
@@ -14,6 +19,16 @@ export default function App({ Component, pageProps = { title: 'polarzero' } }) {
     if (typeof window !== 'undefined' && loader.current)
       loader.current.classList.add('hidden');
   }, []);
+
+  // Force reading mode if it's too small
+  useEffect(() => {
+    if (isShrinked) setReadingMode(true);
+  }, [isShrinked, setReadingMode]);
+
+  // Force reading mode if it's in the URL
+  useEffect(() => {
+    if (window.location.search.includes('reading=true')) setReadingMode(true);
+  }, [setReadingMode]);
 
   return (
     <>

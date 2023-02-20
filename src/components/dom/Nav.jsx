@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { Divider, Dropdown } from 'antd';
 import { AiOutlineMenu } from 'react-icons/ai';
@@ -9,14 +9,14 @@ import config from '@/data';
 import hooks from '@/hooks';
 
 const Nav = () => {
-  const { theme, updateTheme, language, toggleLanguage } = stores.useConfig(
-    (state) => ({
+  const { theme, updateTheme, language, toggleLanguage, hideControls } =
+    stores.useConfig((state) => ({
       theme: state.theme,
       updateTheme: state.updateTheme,
       language: state.language,
       toggleLanguage: state.toggleLanguage,
-    }),
-  );
+      hideControls: state.hideControls,
+    }));
   const { init, started, audioOff, toggleMute } = stores.useAudio((state) => ({
     init: state.init,
     started: state.started,
@@ -25,7 +25,7 @@ const Nav = () => {
   }));
 
   return (
-    <header className='nav'>
+    <header className={`nav ${hideControls ? 'hidden' : ''}`}>
       <div className='title'>{/* <a>polarzero</a> */}</div>
 
       <div className='links'>
@@ -67,8 +67,19 @@ const Nav = () => {
 
 const Links = () => {
   const language = stores.useConfig((state) => state.language);
+  const setActivePage = stores.useCounter((state) => state.setActivePage);
   const { isMobile } = hooks.useWindowSize();
   const router = useRouter();
+
+  useEffect(() => {
+    const index = config.nav['en'].findIndex(
+      (item) => item === router.pathname.slice(1),
+    );
+    if (index !== -1) {
+      const page = config.nav[language][index];
+      setActivePage(page);
+    }
+  }, [router.pathname, setActivePage]);
 
   const items = [
     {

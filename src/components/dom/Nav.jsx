@@ -75,9 +75,13 @@ const Links = () => {
     const index = config.nav['en'].findIndex(
       (item) => item === router.pathname.slice(1),
     );
+
     if (index !== -1) {
-      const page = config.nav[language][index];
-      setActivePage(page);
+      setActivePage(config.nav[language][index]);
+    } else if (router.pathname === '/') {
+      setActivePage(config.nav[language][0]);
+    } else {
+      setActivePage('');
     }
   }, [router.pathname, setActivePage, language]);
 

@@ -12,8 +12,9 @@ const CounterHelper = ({ content }) => {
   useFrame(() => {
     setScrollPos(data.offset);
 
-    const index = Math.round(data.offset * content.length);
-    const project = index === 0 ? null : content[index - 1];
+    const index = Math.round(data.offset * (content.length + 1));
+    const project =
+      index === 0 || index === content.length + 1 ? null : content[index - 1];
     setVisibleProject(project);
   });
 

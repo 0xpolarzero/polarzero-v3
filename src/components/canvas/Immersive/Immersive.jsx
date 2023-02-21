@@ -20,7 +20,7 @@ const Immersive = ({ type }) => {
   }, [language, type]);
 
   return (
-    <ScrollControls damping={6} pages={content.length + 1}>
+    <ScrollControls damping={6} pages={content.length + 2} infinite>
       <CounterHelper content={content} />
 
       {width < 9.6 || type === 'education' ? null : (

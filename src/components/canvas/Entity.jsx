@@ -77,7 +77,11 @@ const Entity = ({ type }) => {
     ref.current.material.uniforms.uTime.value = clock.getElapsedTime();
 
     // Scroll
-    ref.current.position.y = readingMode ? 0 : scrollPos * 2;
+    // ref.current.position.y = readingMode ? 0 : scrollPos * 2;
+    // scrollPos being between 0 and 1, it will reach 2 at the end of the page
+    // maybe instead reach 2 at the middle of the page, then go back to 0
+    // when the page is scrolled to the end
+    ref.current.position.y = readingMode ? 0 : Math.sin(scrollPos * Math.PI);
 
     // Modifications based on audio
     const analyserData = getAnalyserData();

@@ -1,4 +1,6 @@
 .reading {
+  font-family: var(--font-reading);
+  font-weight: 300;
   position: absolute;
   top: 0;
   left: 0;

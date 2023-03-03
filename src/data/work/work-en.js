@@ -2,68 +2,68 @@ import types from '../helpers/types';
 import tech from '../helpers/tech';
 
 const work = [
-  // {
-  //   type: [types[0]],
-  //   title: 'Cross-chain token-gated smart contract',
-  //   description: (
-  //     <div>
-  //       Restrict access to a smart contract based on the{' '}
-  //       <b>ERC20 balance of a user accross multiple chains</b>.
-  //     </div>
-  //   ),
-  //   context: (
-  //     <div>
-  //       This uses{' '}
-  //       <a href='https://chain.link/functions' target='_blank' rel='noreferrer'>
-  //         Chainlink Functions
-  //       </a>{' '}
-  //       to retrieve the balance of an Ethereum address for an ERC20 token
-  //       accross multiple blockchains. The aggregated balance is then brought
-  //       back to the original chain to gate access to specific functions in the
-  //       smart contract.
-  //     </div>
-  //   ),
-  //   links: (
-  //     <>
-  //       <a
-  //         href='https://cross-chain-erc-20-balance-verification.vercel.app/'
-  //         target='_blank'
-  //         rel='noreferrer'>
-  //         Website
-  //       </a>{' '}
-  //       |{' '}
-  //       <a href='' target='_blank' rel='noreferrer'>
-  //         Other links
-  //       </a>{' '}
-  //       |{' '}
-  //       <a
-  //         href='https://github.com/0xpolarzero/cross-chain-ERC20-balance-verification'
-  //         target='_blank'
-  //         rel='noreferrer'>
-  //         Github
-  //       </a>
-  //     </>
-  //   ),
-  //   tech: [
-  //     tech.solidity,
-  //     tech.javascript,
-  //     tech.hardhat,
-  //     tech.chainlink,
-  //     tech.wagmi,
-  //     tech.ethers,
-  //     tech.nextjs,
-  //     tech.antd,
-  //     tech.zustand,
-  //   ],
-  //   image: {
-  //     url: '/img/screenshots/cross-chain-erc20-balance-verification.png',
-  //     link: 'https://cross-chain-erc-20-balance-verification.vercel.app/',
-  //     bgType: 'light',
-  //     x: 4112,
-  //     y: 2400,
-  //   },
-  //   date: '2023-02',
-  // },
+  {
+    type: [types[0]],
+    title: 'Cross-chain token-gated smart contract',
+    description: (
+      <div>
+        Restrict access to a smart contract based on the{' '}
+        <b>ERC20 balance of a user across multiple chains</b>.
+      </div>
+    ),
+    context: (
+      <div>
+        This uses{' '}
+        <a href='https://chain.link/functions' target='_blank' rel='noreferrer'>
+          Chainlink Functions
+        </a>{' '}
+        to retrieve the balance of an Ethereum address for an ERC20 token across
+        multiple blockchains. The aggregated balance is then brought back to the
+        original chain to gate access to specific functions in the smart
+        contract.
+      </div>
+    ),
+    links: (
+      <>
+        <a
+          href='https://cross-chain-erc-20-balance-verification.vercel.app/'
+          target='_blank'
+          rel='noreferrer'>
+          Website
+        </a>{' '}
+        |{' '}
+        <a href='' target='_blank' rel='noreferrer'>
+          Other links
+        </a>{' '}
+        |{' '}
+        <a
+          href='https://github.com/0xpolarzero/cross-chain-ERC20-balance-verification'
+          target='_blank'
+          rel='noreferrer'>
+          Github
+        </a>
+      </>
+    ),
+    tech: [
+      tech.solidity,
+      tech.javascript,
+      tech.hardhat,
+      tech.chainlink,
+      tech.wagmi,
+      tech.ethers,
+      tech.nextjs,
+      tech.antd,
+      tech.zustand,
+    ],
+    image: {
+      url: '/img/screenshots/cross-chain-erc20-balance-verification.png',
+      link: 'https://cross-chain-erc-20-balance-verification.vercel.app/',
+      bgType: 'light',
+      x: 4112,
+      y: 2400,
+    },
+    date: '2023-02',
+  },
   {
     type: [types[0], types[1], types[3]],
     title: 'Echoes',

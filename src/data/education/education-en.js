@@ -9,7 +9,7 @@ const education = [
       <div>
         Seven-week course on Ethereum and smart contracts development, based on
         learning-by-doing and coding challenges: cryptography fundamentals, data
-        strictures, UTXO / Accound-based models, smart contracts, Solidity,
+        structures, UTXO / Accound-based models, smart contracts, Solidity,
         Hardhat, libraries, multi-sigs, ERC20, proxies & upgradability,
         governance...
         <br />
@@ -100,7 +100,7 @@ const education = [
       'Full Blockchain, Solidity & Full-Stack Web3 development with JavaScript',
     description: (
       <div>
-        Full introduction into all of the core concepts related to blockchain:
+        Full introduction into all the core concepts related to blockchain:
         smart contracts, Solidity, ERC20s, full-stack Web3 dapps, decentralized
         finance (DeFi), JavaScript, TypeScript, Chainlink, Ethereum, upgradable
         smart contracts, DAOs, The Graph, Moralis, Aave, IPFS... <br />
